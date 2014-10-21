@@ -1,0 +1,118 @@
+/* CSS declarations go here */
+body {
+  background-image: url('tentacles.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#absolute-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.container {
+  margin: 40px auto;
+  padding: 1% 2%;
+  background: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  min-height: 600px;
+  position: relative;
+}
+
+.bottom-hr {
+  position: absolute;
+  width: 95%;
+  bottom: 4%;
+}
+
+.textbox {
+  background-color: transparent;  
+  border-style: solid;  
+  border-width: 0px 0px 1px 0px;  
+  border-color: lightgrey;
+  width: 100%;
+  outline:0;
+}
+
+.content {
+  margin-bottom: 5%
+}
+
+.content form {
+  margin-top: 2%
+}
+
+.tentacle {
+  padding: 3px 0;
+  border-bottom: 1px solid whitesmoke; 
+  -webkit-transition: background-color 1s; /* For Safari 3.1 to 6.0 */
+  transition: background-color 1s;
+  margin: 1px 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+
+}
+
+.tentacle:hover {
+  background-color: lightyellow
+}
+
+.tentacle .vote {
+  padding-left: 5px;
+}
+.tentacle .glyphicon { 
+  padding-left: 2px;
+  cursor: pointer;
+}
+
+footer.main {
+  position: absolute;
+  bottom: 2%
+}
+
+header.main h1 {
+  font-size: 40px;
+}
+
+header.main h1 span{
+  font-family: mad_c;
+  margin: -20px 0;
+  font-size: 120px;
+  line-height: 60px;
+}
+
+#login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+
+
+.alert {
+  z-index: 10;
+  position: relative;
+  margin: 0;
+}
+
+.green { color: lightgreen}
+.red { color: red}
+
+.profile {
+  height: 25px;
+  width: 25px;
+}
+
+.profile.img-red {
+  border: solid 1px red;
+}
+
+.profile.img-green {
+  border: solid 1px lightgreen;
+}

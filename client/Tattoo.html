@@ -1,0 +1,65 @@
+<head>
+  <title>Tatoo</title>
+</head>
+
+<body>
+<div id="login">
+{{> loginButtons}}
+</div>
+<div id="absolute-container">
+  <div class="container">
+    <header class="main">
+      {{> header}}
+    </header>
+    <div class="content">
+    <hr>
+    {{> tatoo}}
+    </div>
+    <hr class="bottom-hr">
+    
+    <footer class="main">
+      {{> footer}}
+    </footer>
+  </div>
+</div>
+</body>
+
+<template name="header">
+<h1>Aidez moi a construire mon <span>Tatouage</span></h1>
+  <p>J'ai pour but de me faire un tatouage caligraphié dans le dos. Celui-ci est sous forme de tentacules sortant d'une cicatrice. Je cherche des idées de phrases/glyphes/formules me correspondant. Si vous avez une idée, ajoutez la. Sinon vous pouvez voter pour ce que vous trouvez cool.</p>
+</template>
+
+<template name="footer">
+  <small>Ce site est en construction attendez vous à des modifications fréquentes et potentiellement violentes.</small>
+</template>
+
+<template name="form">
+  <form class="new-line-form">
+    <input type="text" class="textbox" placeholder="Ajouter une nouvelle tentacule">
+    <span class="icon-add"></span>
+  </form>
+</template>
+
+<template name="list">
+  {{#each tentacles}}
+    {{> tentacle}}
+  {{/each}}
+  
+</template>
+
+<template name="tentacle">
+<div class="tentacle">
+  <span class="downvote glyphicon glyphicon-arrow-down {{arrow_color_down}}" data-id="{{_id}}"></span>
+  <span class="glyphicon glyphicon-arrow-up upvote {{arrow_color_up}}" data-id="{{_id}}"></span>
+  <span class="text">{{text}}</span>
+  <span class="vote label {{label_color}}">{{vote}}</span>
+  {{#each votes}}
+    <img src="{{this.picture}}" class="{{this.klass}} profile"> 
+  {{/each}}
+  </div>
+</template>
+
+<template name="tatoo">
+{{> list}}
+{{> form}}
+</template>
