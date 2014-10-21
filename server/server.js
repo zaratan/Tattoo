@@ -1,6 +1,11 @@
 Accounts.onCreateUser(function(options, user) {
   if (options.profile) {
-    options.profile.picture = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
+    if(user.services.facebook){
+      options.profile.picture = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
+    }
+    if(user.services.google){
+      options.profile.picture = user.services.google.picture
+    }
     user.profile = options.profile;
   }
   return user;

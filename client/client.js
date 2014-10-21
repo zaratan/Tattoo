@@ -62,3 +62,7 @@ Template.form.events({
     $input.val('');
   }
 });
+
+Template.login.helpers({
+  user: function(){return Meteor.user()}
+});

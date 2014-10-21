@@ -3,9 +3,6 @@
 </head>
 
 <body>
-<div id="login">
-{{> loginButtons}}
-</div>
 <div id="absolute-container">
   <div class="container">
     <header class="main">
@@ -26,7 +23,15 @@
 
 <template name="header">
 <h1>Aidez moi a construire mon <span>Tatouage</span></h1>
-  <p>J'ai pour but de me faire un tatouage caligraphié dans le dos. Celui-ci est sous forme de tentacules sortant d'une cicatrice. Je cherche des idées de phrases/glyphes/formules me correspondant. Si vous avez une idée, ajoutez la. Sinon vous pouvez voter pour ce que vous trouvez cool.</p>
+<p>J'ai pour but de me faire un tatouage caligraphié dans le dos. Celui-ci est sous forme de tentacules sortant d'une cicatrice. Je cherche des idées de phrases/glyphes/formules me correspondant. Si vous avez une idée, ajoutez la. Sinon vous pouvez voter pour ce que vous trouvez cool. {{> login}}</p>
+</template>
+
+<template name="login">
+  {{#if user}}
+    Vous êtes connecté en tant que {{>loginButtons}}
+  {{else}}
+    En premier lieu: {{> loginButtons}}
+  {{/if}}
 </template>
 
 <template name="footer">
