@@ -1,5 +1,6 @@
 Meteor.subscribe("tentacles");
 Meteor.subscribe("votes");
+Meteor.subscribe("users");
 
 Template.list.helpers({
   tentacles: function(){return Tentacles.find({}, {sort: {vote: -1, created_at: -1}})}
@@ -37,7 +38,8 @@ Template.tentacle.helpers({
     return _.map(first_votes_for_tentacle(this._id), function(e){
       return {
         picture: e.picture,
-        klass: (e.up ? "img-green" : "img-red")
+        klass: (e.up ? "img-green" : "img-red"),
+        name: user_name_by_id(e.user)
       }
     })
   }

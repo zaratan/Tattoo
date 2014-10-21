@@ -12,6 +12,9 @@ Votes.allow({
   remove: function(){return false;}
 });
 
+Meteor.users.allow({
+});
+
 count_vote_user_tentacle = function(tentacle_id, up) {
   return Votes.find({user: Meteor.user()._id, up: up, tentacle_id: tentacle_id}).count()
 }
@@ -26,6 +29,10 @@ vote_up = function(id) {
 
 first_votes_for_tentacle = function(tentacle_id) {
   return Votes.find({tentacle_id: tentacle_id},{limit: 10, sort: {created_at: -1}}).fetch()
+}
+
+user_name_by_id = function(id) {
+  return Meteor.users.findOne(id).profile.name;
 }
 
 Meteor.methods({
@@ -60,5 +67,4 @@ Meteor.methods({
       Votes.remove({user: Meteor.user()._id, tentacle_id: id})
       Tentacles.update(id, {$inc: {vote: -inc}});
     }
-  }
-})
+  }})
