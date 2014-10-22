@@ -12,9 +12,6 @@ Votes.allow({
   remove: function(){return false;}
 });
 
-Meteor.users.allow({
-});
-
 count_vote_user_tentacle = function(tentacle_id, up) {
   return Votes.find({user: Meteor.user()._id, up: up, tentacle_id: tentacle_id}).count()
 }
